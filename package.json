@@ -24,7 +24,7 @@
     "svg-shapes": "^1.7.0",
     "tweening": "^1.0.1"
   },
-  "description": "Animate between SVG shapes.",
+  "description": "Animate between SVG shapes",
   "devDependencies": {
     "babel-cli": "^6.5.1",
     "babel-core": "^6.5.2",
