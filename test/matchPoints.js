@@ -67,22 +67,44 @@ describe( 'addPoints', () => {
     expect( addPoints( points, 8 ).length ).toBe( 8 );
   });
 
-  it( 'should spread multiple midpoints', () => {
+
+  it( 'should add correct extra midpoints at midpoints when more than one per join', () => {
     const points = [
       { x: 0, y: 0 },
-      { x: 50, y: 20 },
-      { x: -10, y: -10 },
+      { x: 50, y: 25 },
+      { x: -10, y: -100 },
     ];
 
     const expectedPoints = [
       { x: 0, y: 0 },
-      { x: 12.5, y: 5 },
-      { x: 25, y: 10 },
-      { x: 37.5, y: 15 },
-      { x: 50, y: 20 },
-      { x: 30, y: 10 },
-      { x: 10, y: 0 },
-      { x: -10, y: -10 },
+      { x: 12.5, y: 6.25 },
+      { x: 25, y: 12.5 },
+      { x: 37.5, y: 18.75 },
+      { x: 50, y: 25 },
+      { x: 35, y: -6.25 },
+      { x: 20, y: -37.5 },
+      { x: -10, y: -100 },
+    ];
+
+    expect( addPoints( points, 8 )).toEqual( expectedPoints );
+  });
+
+  it( 'should only add points between straight lines', () => {
+    const points = [
+      { x: 0, y: 0 },
+      { x: 50, y: 25, curve: { type: 'arc', rx: 1, ry: 1 }},
+      { x: 100, y: 100 },
+    ];
+
+    const expectedPoints = [
+      { x: 0, y: 0 },
+      { x: 50, y: 25, curve: { type: 'arc', rx: 1, ry: 1 }},
+      { x: 56.25, y: 34.375 },
+      { x: 62.5, y: 43.75 },
+      { x: 68.75, y: 53.125 },
+      { x: 75, y: 62.5 },
+      { x: 87.5, y: 81.25 },
+      { x: 100, y: 100 },
     ];
 
     expect( addPoints( points, 8 )).toEqual( expectedPoints );
@@ -121,6 +143,16 @@ describe( 'removePoints', () => {
     expect( removePoints( points )).toEqual( expectedPoints );
   });
 
+  it( 'should not remove midpoint if curve', () => {
+    const points = [
+      { x: 0, y: 0 },
+      { x: 25, y: 0, curve: { type: 'arc', rx: 1, ry: 1 }},
+      { x: 50, y: 0 },
+    ];
+
+    expect( removePoints( points )).toEqual( points );
+  });
+
   it( 'should remove duplicate point', () => {
     const points = [
       { x: 0, y: 10 },
@@ -154,6 +186,17 @@ describe( 'removePoints', () => {
     ];
 
     expect( removePoints( points )).toEqual( expectedPoints );
+  });
+
+  it( 'should not remove duplicate point if curve', () => {
+    const points = [
+      { x: 0, y: 10 },
+      { x: 25, y: 0 },
+      { x: 25, y: 0, curve: { type: 'arc', rx: 1, ry: 1 }},
+      { x: 50, y: 50 },
+    ];
+
+    expect( removePoints( points )).toEqual( points );
   });
 });
 

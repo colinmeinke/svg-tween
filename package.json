@@ -21,7 +21,7 @@
     }
   },
   "dependencies": {
-    "svg-shapes": "^1.7.0",
+    "svg-shapes": "^1.8.0",
     "tweening": "^1.0.1"
   },
   "description": "Animate between SVG shapes",

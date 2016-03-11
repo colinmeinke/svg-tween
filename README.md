@@ -2,8 +2,6 @@
 
 Animate between SVG shapes.
 
-**Note**: Currently does not support shapes with curves. Soon!
-
 Uses [SVG shapes](https://github.com/colinmeinke/svg-shapes)
 and [Tweening](https://github.com/colinmeinke/tweening) under
 the hood.

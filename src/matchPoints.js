@@ -1,4 +1,8 @@
 const isBetween = ( a, b, c ) => {
+  if ( b.curve || c.curve ) {
+    return false;
+  }
+
   const crossProduct =
     ( c.y - a.y ) *
     ( b.x - a.x ) -
@@ -32,37 +36,44 @@ const isBetween = ( a, b, c ) => {
   return true;
 };
 
+const straightMidPoint = ( a, b ) => {
+  const x = a.x === b.x ? 0 : Math.abs( b.x - a.x );
+  const y = a.y === b.y ? 0 : Math.abs( b.y - a.y );
+
+  return {
+    x: x === 0 ? a.x : ( a.x < b.x ? a.x + x / 2 : a.x - x / 2 ),
+    y: y === 0 ? a.y : ( a.y < b.y ? a.y + y / 2 : a.y - y / 2 ),
+  };
+};
+
+const midPoint = ( a, b ) => {
+  if ( !b.curve ) {
+    return straightMidPoint( a, b );
+  }
+
+  return false;
+};
+
 const addPoints = ( points, pointsRequired ) => {
-  const p = [];
+  const p = [ ...points ];
 
-  const joins = points.length - 1;
-  const extraPoints = pointsRequired - points.length;
-  const extraPointsPerJoin = Math.ceil( extraPoints / joins );
+  for ( let i = 1; i < p.length; ) {
+    const m = midPoint( p[ i - 1 ], p[ i ]);
 
-  for ( let i = 0, pointsAdded = 0; i < points.length; i++ ) {
-    p.push( points[ i ]);
+    if ( m ) {
+      p.splice( i, 0, m );
 
-    if ( i < joins ) {
-      const extraPointsForThisJoin = Math.min( extraPointsPerJoin, extraPoints - pointsAdded );
-
-      for ( let j = 0; j < extraPointsForThisJoin; j++ ) {
-        const c = points[ i ];
-        const n = points[ i + 1 ];
-
-        const xSpacing = c.x === n.x ? 0 : Math.abs( n.x - c.x ) / ( extraPointsForThisJoin + 1 );
-        const ySpacing = c.y === n.y ? 0 : Math.abs( n.y - c.y ) / ( extraPointsForThisJoin + 1 );
-
-        const x = xSpacing === 0 ? c.x : ( c.x < n.x ? c.x + ( xSpacing * ( j + 1 )) : c.x - ( xSpacing * ( j + 1 )));
-        const y = ySpacing === 0 ? c.y : ( c.y < n.y ? c.y + ( ySpacing * ( j + 1 )) : c.y - ( ySpacing * ( j + 1 )));
-
-        p.push({ x, y });
-
-        pointsAdded++;
+      if ( p.length === pointsRequired ) {
+        return p;
       }
+
+      i += 2;
+    } else {
+      i++;
     }
   }
 
-  return p;
+  return addPoints( p, pointsRequired );
 }
 
 const removePoints = points => {
