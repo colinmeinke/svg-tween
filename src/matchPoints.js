@@ -1,5 +1,3 @@
-const isDuplicate = ( a, b ) => a.x === b.x && a.y === b.y;
-
 const isBetween = ( a, b, c ) => {
   const crossProduct =
     ( c.y - a.y ) *
@@ -75,10 +73,7 @@ const removePoints = points => {
     const b = points[ i + 1 ];
     const c = points[ i ];
 
-    if (
-      !( a && b && c ) ||
-      !( isDuplicate( c, b ) || isBetween( a, b, c ))
-    ) {
+    if ( !( a && b && c ) || !( isBetween( a, b, c ))) {
       result.push( c );
     }
   }
