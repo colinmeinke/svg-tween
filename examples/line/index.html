@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SVG tween line example</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      svg {
+        background-color: rgba(15,15,15,1);
+        background-image: radial-gradient(
+          3px 3px at center,
+          rgba(35,35,35,1) 0%,
+          rgba(35,35,35,1) 50%,
+          rgba(15,15,15,1) 50%,
+          rgba(15,15,15,1) 100%
+        );
+        background-size: 50px 50px;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      height="400"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 600 400"
+      width="600"
+    >
+      <path
+        fill="none"
+        id="path"
+        stroke="rgb(240,60,40)"
+        stroke-width="5"
+      />
+    </svg>
+  </body>
+  <script src="./client.dist.js"></script>
+</html>

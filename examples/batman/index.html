@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SVG tween batman example</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      svg {
+        background-color: rgb(0,0,0);
+        background-image: linear-gradient(
+          -60deg,
+          rgb(30,30,30),
+          rgb(0,0,0) 60%
+        );
+        height: 100%;
+        width: 100%;
+      }
+
+      path {
+        fill: url(#batman);
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      height="340"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 610 340"
+      width="610"
+    >
+      <linearGradient
+        gradientTransform="rotate(60)"
+        id="batman"
+      >
+        <stop offset="0%" stop-color="rgb(25,25,25)" />
+        <stop offset="100%" stop-color="rgb(120,120,120)" />
+      </linearGradient>
+      <path id="path" />
+    </svg>
+  </body>
+  <script src="./client.dist.js"></script>
+</html>
