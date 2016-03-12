@@ -21,6 +21,7 @@
     }
   },
   "dependencies": {
+    "svg-arc-to-cubic-bezier": "^1.0.0",
     "svg-shapes": "^1.8.0",
     "tweening": "^1.0.1"
   },
