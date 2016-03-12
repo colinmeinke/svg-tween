@@ -2,17 +2,21 @@
 
 Animate between SVG shapes.
 
-Uses [SVG shapes](https://github.com/colinmeinke/svg-shapes)
-and [Tweening](https://github.com/colinmeinke/tweening) under
-the hood.
+## Examples
 
-As Tweening uses a Javascript generator you're going to have
-to bring your own generator polyfill to the party if you wish
-to [support all browsers](http://kangax.github.io/compat-table/es6/#test-generators).
+![Basic shapes example](https://www.dropbox.com/s/9czewgnfkp59yfn/basic-shapes.gif?raw=1)
 
-Both `tween` and `tweenPath` functions take the same arguments
-as Tweening's [tween function](https://github.com/colinmeinke/tweening#options),
-but with modified `from` and `to` options.
+[View basic shapes example code](./examples/basic-shapes)
+
+![Batman example](https://www.dropbox.com/s/2n92b1uqh6rao8q/batman.gif?raw=1)
+
+[View batman example code](./examples/batman)
+
+![Line example](https://www.dropbox.com/s/y3rn6r62c07ln36/line.gif?raw=1)
+
+[View line example code](./examples/line)
+
+[](./examples/basic-shapes)
 
 ## Installation
 
@@ -60,3 +64,17 @@ tweenPaths({
   next: d => console.log( `Update SVG path to ${ d }` ),
 })
 ```
+
+## Notes
+
+SVG tween uses [SVG shapes](https://github.com/colinmeinke/svg-shapes)
+and [Tweening](https://github.com/colinmeinke/tweening) under
+the hood.
+
+As Tweening uses a Javascript generator you're going to have
+to bring your own generator polyfill to the party if you wish
+to [support all browsers](http://kangax.github.io/compat-table/es6/#test-generators).
+
+Both `tween` and `tweenPath` functions take the same arguments
+as Tweening's [tween function](https://github.com/colinmeinke/tweening#options),
+but with modified `from` and `to` options.
