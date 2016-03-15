@@ -2,6 +2,13 @@
 
 Animate between SVG shapes.
 
+**5.4kb gzipped.**
+
+However, you're currently also going to have to bring
+babel polyfill to the party at an additional 30.8kb gzipped.
+This is to support Javascript generators which a dependency
+of this library makes use of.
+
 ## Examples
 
 ![Basic shapes example](https://www.dropbox.com/s/9czewgnfkp59yfn/basic-shapes.gif?raw=1)
@@ -70,10 +77,6 @@ tweenPaths({
 SVG tween uses [SVG shapes](https://github.com/colinmeinke/svg-shapes)
 and [Tweening](https://github.com/colinmeinke/tweening) under
 the hood.
-
-As Tweening uses a Javascript generator you're going to have
-to bring your own generator polyfill to the party if you wish
-to [support all browsers](http://kangax.github.io/compat-table/es6/#test-generators).
 
 Both `tween` and `tweenPath` functions take the same arguments
 as Tweening's [tween function](https://github.com/colinmeinke/tweening#options),
