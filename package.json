@@ -53,13 +53,13 @@
   "main": "lib/index.js",
   "name": "svg-tween",
   "scripts": {
-    "clean": "rimraf lib dist",
-    "commit": "git-cz",
     "build": "npm run build:lib && npm run build:umd",
     "build:lib": "babel src --out-dir lib",
     "build:umd": "npm run build:umd:dev && npm run build:umd:pro",
     "build:umd:dev": "webpack ./src/index.js ./dist/svg-tween.js --output-library SVGTween --output-library-target umd --config ./webpack.config.babel.js",
     "build:umd:pro": "webpack -p ./src/index.js ./dist/svg-tween.min.js --output-library SVGTween --output-library-target umd --config ./webpack.config.babel.js",
+    "clean": "rimraf lib dist",
+    "commit": "git-cz",
     "prepublish": "npm run clean && npm run build",
     "test": "mocha --compilers js:babel-core/register test/*.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
