@@ -25,8 +25,8 @@ or even better – submit a pull request.
 However, you're currently also going to have to bring
 [babel polyfill](https://cdnjs.com/libraries/babel-polyfill)
 to the party at an additional 30.8kb gzipped. This is to
-support Javascript generators which a dependency of this library
-makes use of.
+support Javascript generators which a dependency of this
+library makes use of.
 
 ## Examples
 
