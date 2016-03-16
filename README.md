@@ -4,6 +4,24 @@ Animate between SVG shapes.
 
 **5.4kb gzipped.**
 
+A size comparison of libraries that allow morphing of SVG
+shapes (with differing number of points).
+
+| Library | Size |
+| --- | --- |
+| SVG tween | 5.4kb |
+| [SVG Morpheus](https://alexk111.github.io/SVG-Morpheus) | 7.2kb |
+| [SnapSVG](http://snapsvg.io) | 26kb |
+| [RaphaelJS](http://dmitrybaranovskiy.github.io/raphael) | 32kb |
+| [GreenSock morphSVG](http://greensock.com/morphSVG) | 41.5kb |
+| [Bonsai](http://bonsaijs.org) | 43kb |
+
+If you know of any others, please
+[open an issue](https://github.com/colinmeinke/svg-tween/issues/new)
+or even better – submit a pull request.
+
+## Polyfill generators
+
 However, you're currently also going to have to bring
 [babel polyfill](https://cdnjs.com/libraries/babel-polyfill)
 to the party at an additional 30.8kb gzipped. This is to
@@ -34,51 +52,121 @@ npm install svg-tween
 
 ## Usage
 
-To tween between different SVG shapes use `tween`. Take a
-look at the SVG shapes
-[getPoints function](https://github.com/colinmeinke/svg-shapes#usage)
-to understand the format the `from` and `to` options expect
-to receive.
+SVG tween has two functions – `tween` and `tweenPaths`.
+
+### tween
+
+The `tween` function takes all the same options as
+[**Tweening**'s `tween` function](https://github.com/colinmeinke/tweening#options).
+However, the `from` and `to` options take the form of shape
+objects.
 
 ```js
 import tween from 'svg-tween';
 
+// The shape we want to animate from
+const from = {
+  shape: 'path',
+  d: 'M5,50L80,60v40,l-15,10l-15,-10z',
+};
+
+// The shape we want to animate to
+const to = {
+  shape: 'rect',
+  width: 100,
+  height: 100,
+  x: 50,
+  y: 50,
+};
+
+// Create a new path node
+const path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path' );
+
+// Set the node's initial d attribute to match the from shape
+path.setAttribute( 'd', from.d );
+
+// Add the path node to the dom
+document.getElementById( 'svg' ).appendChild( path );
+
+// Let's move!
+// On each frame our next callback is run
+// this is where we update our path node's d attribute
 tween({
-  from: {
-    shape: 'path',
-    d: 'M5,50L80,60v40,l-15,10l-15,-10z',
-  },
-  to: {
-    shape: 'rect',
-    width: 100,
-    height: 100,
-    x: 50,
-    y: 50,
-  },
-  next: d => console.log( `Update SVG path to ${ d }` ),
+  duration: 500,
+  from,
+  to,
+  next: d => path.setAttribute( 'd', d ),
 });
 ```
 
-Or if you're just tweening between paths then use the
-`tweenPaths` function, passing in SVG path `d` attributes as
-the `from` and `to` options.
+### tweenPaths
+
+The `tweenPaths` function is much the same as `tween`, except
+it takes `d` attribute strings as it's `from` and `to` options.
 
 ```js
 import { tweenPaths } from 'svg-tween';
 
+// The path we want to animate from
+const from = 'M5,50L80,60v40,l-15,10l-15,-10z';
+
+// The path we want to animate to
+const to = 'M50,50h100v100h-100Z';
+
+// Create a new path node
+const path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path' );
+
+// Set the node's initial d attribute to match from
+path.setAttribute( 'd', from );
+
+// Add the path node to the dom
+document.getElementById( 'svg' ).appendChild( path );
+
+// Let's move!
+// On each frame our next callback is run
+// this is where we update our path node's d attribute
 tweenPaths({
-  from: 'M5,50L80,60v40,l-15,10l-15,-10z',
-  to: 'M50,50h100v100h-100Z',
-  next: d => console.log( `Update SVG path to ${ d }` ),
-})
+  duration: 500,
+  from,
+  to,
+  next: d => path.setAttribute( 'd', d ),
+});
 ```
 
-## Notes
+## CommonJS
 
-SVG tween uses [SVG shapes](https://github.com/colinmeinke/svg-shapes)
-and [Tweening](https://github.com/colinmeinke/tweening) under
-the hood.
+This is how you get to the good stuff if you're using
+`require`.
 
-Both `tween` and `tweenPath` functions take the same arguments
-as Tweening's [tween function](https://github.com/colinmeinke/tweening#options),
-but with modified `from` and `to` options.
+```js
+const SVGTween = require( 'svg-tween' );
+const tween = SVGTween.default;
+const tweenPaths = SVGTween.tweenPaths;
+```
+
+## UMD
+
+And if you just want to smash in a Javascript file you're
+also covered. Drop this in place ...
+
+[https://npmcdn.com/svg-tween@1.3.0/dist/svg-tween.min.js](https://npmcdn.com/svg-tween@1.3.0/dist/svg-tween.min.js)
+
+Then access it on the `SVGTween` global variable.
+
+```js
+const tween = SVGTween.default;
+const tweenPaths = SVGTween.tweenPaths;
+```
+
+## Help make this better
+
+[Issues](https://github.com/colinmeinke/svg-tween/issues/new)
+and pull requests gratefully received!
+
+I'm also on twitter [@colinmeinke](https://twitter.com/colinmeinke).
+
+Thanks :star2:
+
+## License
+
+[ISC](./LICENSE.md).
