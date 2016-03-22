@@ -15,6 +15,7 @@ shapes (with differing number of points).
 | [RaphaelJS](http://dmitrybaranovskiy.github.io/raphael) | 32kb |
 | [GreenSock morphSVG](http://greensock.com/morphSVG) | 41.5kb |
 | [Bonsai](http://bonsaijs.org) | 43kb |
+| [D3](https://d3js.org) | 52kb |
 
 If you know of any others, please
 [open an issue](https://github.com/colinmeinke/svg-tween/issues/new)
