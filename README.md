@@ -4,23 +4,6 @@ Animate between SVG shapes.
 
 **5.4kb gzipped.**
 
-A size comparison of libraries that allow morphing of SVG
-shapes (with differing number of points).
-
-| Library | Size |
-| --- | --- |
-| SVG tween | 5.4kb |
-| [SVG Morpheus](https://alexk111.github.io/SVG-Morpheus) | 7.2kb |
-| [SnapSVG](http://snapsvg.io) | 26kb |
-| [RaphaelJS](http://dmitrybaranovskiy.github.io/raphael) | 32kb |
-| [GreenSock morphSVG](http://greensock.com/morphSVG) | 41.5kb |
-| [Bonsai](http://bonsaijs.org) | 43kb |
-| [D3](https://d3js.org) | 52kb |
-
-If you know of any others, please
-[open an issue](https://github.com/colinmeinke/svg-tween/issues/new)
-or even better – submit a pull request.
-
 ## Polyfill generators
 
 However, you're currently also going to have to bring
@@ -31,9 +14,9 @@ library makes use of.
 
 ## Examples
 
-![Basic shapes example](https://www.dropbox.com/s/9czewgnfkp59yfn/basic-shapes.gif?raw=1)
+![Tower example](https://www.dropbox.com/s/ztcemvnhyxjeypb/tower.gif?raw=1)
 
-[View basic shapes example code](./examples/basic-shapes)
+[View tower example code](./examples/tower)
 
 ![Batman example](https://www.dropbox.com/s/2n92b1uqh6rao8q/batman.gif?raw=1)
 
@@ -43,7 +26,9 @@ library makes use of.
 
 [View line example code](./examples/line)
 
-[](./examples/basic-shapes)
+![Basic shapes example](https://www.dropbox.com/s/9czewgnfkp59yfn/basic-shapes.gif?raw=1)
+
+[View basic shapes example code](./examples/basic-shapes)
 
 ## Installation
 
@@ -134,6 +119,46 @@ tweenPaths({
 });
 ```
 
+## Morphing multiple shapes
+
+The `tween` and `tweenPaths` functions can also accept an
+array of shape objects, or `d` attribute strings respectively.
+This allows us to tween groups of SVG shapes in one function
+call.
+
+```js
+import { tweenPaths } from 'svg-tween';
+
+// The paths we want to animate from
+const from = [ 'M0,0h10v10h-10z', 'M10,10h10v10h-10z' ];
+
+// The paths we want to animate to
+const to = [ 'M0,0l10,5l-10,5z', 'M10,10l10,5l-10,5z' ];
+
+// Create two new path nodes
+const paths = [
+  document.createElementNS( 'http://www.w3.org/2000/svg', 'path' ),
+  document.createElementNS( 'http://www.w3.org/2000/svg', 'path' ),
+];
+
+paths.forEach(( p, i ) => {
+  // Set the node's initial d attribute to match from
+  p.setAttribute( 'd', from[ i ]);
+
+  // Add the path node to the dom
+  document.getElementById( 'svg' ).appendChild( p );
+);
+
+// Let's move!
+// On each frame our next callback is run for each path
+// this is where we update our path node's d attribute
+tweenPaths({
+  from,
+  to,
+  next: ( d, i ) => paths[ i ].setAttribute( 'd', d ),
+});
+```
+
 ## CommonJS
 
 This is how you get to the good stuff if you're using
@@ -150,7 +175,7 @@ const tweenPaths = SVGTween.tweenPaths;
 And if you just want to smash in a Javascript file you're
 also covered. Drop this in place ...
 
-[https://npmcdn.com/svg-tween@1.3.0/dist/svg-tween.min.js](https://npmcdn.com/svg-tween@1.3.0/dist/svg-tween.min.js)
+[https://npmcdn.com/svg-tween@1.4.0/dist/svg-tween.min.js](https://npmcdn.com/svg-tween@1.4.0/dist/svg-tween.min.js)
 
 Then access it on the `SVGTween` global variable.
 
@@ -158,6 +183,25 @@ Then access it on the `SVGTween` global variable.
 const tween = SVGTween.default;
 const tweenPaths = SVGTween.tweenPaths;
 ```
+
+## Size
+
+A size comparison of libraries that allow morphing of SVG
+shapes (with differing number of points).
+
+| Library | Size |
+| --- | --- |
+| SVG tween | 5.4kb |
+| [SVG Morpheus](https://alexk111.github.io/SVG-Morpheus) | 7.2kb |
+| [SnapSVG](http://snapsvg.io) | 26kb |
+| [RaphaelJS](http://dmitrybaranovskiy.github.io/raphael) | 32kb |
+| [GreenSock morphSVG](http://greensock.com/morphSVG) | 41.5kb |
+| [Bonsai](http://bonsaijs.org) | 43kb |
+| [D3](https://d3js.org) | 52kb |
+
+If you know of any others, please
+[open an issue](https://github.com/colinmeinke/svg-tween/issues/new)
+or even better – submit a pull request.
 
 ## Help make this better
 

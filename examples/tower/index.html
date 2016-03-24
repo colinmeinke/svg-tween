@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SVG tween tower example</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      svg {
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+      }
+
+      #tile-floor { fill: rgb( 125, 180, 89 ); }
+      #tile-right { fill: rgb( 85, 111, 67 ); }
+      #tile-left { fill: rgb( 63, 82, 50 ); }
+
+      #drive { fill: rgb( 102, 168, 62 ); }
+
+      #tree-earth-left { fill: rgb( 79, 69, 48 ); }
+      #tree-earth-right { fill: rgb( 54, 47, 32 ); }
+
+      #tree-trunk-left { fill: rgb( 138, 116, 71 ); }
+      #tree-trunk-right { fill: rgb( 79, 65, 36 ); }
+
+      #tree-leaves-left { fill: rgb( 52, 78 ,36 ); }
+      #tree-leaves-right { fill: rgb( 82, 122 ,55 ); }
+      #tree-leaves-top { fill: rgb( 100, 156 ,62 ); }
+
+      #building-earth-left { fill: rgb( 85, 130, 56 ); }
+      #building-earth-right { fill: rgb( 57, 84, 39 ); }
+
+      #building-tower-left { fill: rgb( 168, 173, 168 ); }
+      #building-tower-right { fill: rgb( 115, 124, 114 ); }
+      #building-tower-top { fill: rgb( 209, 215, 209 ); }
+
+      #building-roof-left { fill: rgb( 115, 124, 114 ); }
+      #building-roof-right { fill: rgb( 168, 173, 168 ); }
+
+      #building-door-frame-bottom { fill: rgb( 209, 215, 209 ); }
+      #building-door-frame-right { fill: rgb( 168, 173, 168 ); }
+      #building-door-block { fill: rgb( 70, 75, 70 ); }
+      #building-door-trim { fill: rgb( 38, 39, 38 ); }
+
+      html:not(.one) #building-door-block,
+      html:not(.one) #building-door-trim,
+      html:not(.two) #building-roof-left,
+      html:not(.two) #building-roof-right,
+      html:not(.two) #building-door-frame-bottom,
+      html:not(.two) #building-door-frame-right {
+        fill: none;
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      height="515"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 560 515"
+      width="560"
+    >
+      <g id="tile">
+        <path id="tile-floor" />
+        <path id="tile-right" />
+        <path id="tile-left" />
+      </g>
+
+      <path id="drive" />
+
+      <g id="tree">
+        <g id="tree-earth">
+          <path id="tree-earth-left" />
+          <path id="tree-earth-right" />
+        </g>
+
+        <g id="tree-trunk">
+          <path id="tree-trunk-left" />
+          <path id="tree-trunk-right" />
+        </g>
+
+        <g id="tree-leaves">
+          <path id="tree-leaves-left" />
+          <path id="tree-leaves-right" />
+          <path id="tree-leaves-top" />
+        </g>
+      </g>
+
+      <g id="building">
+        <g id="building-earth">
+          <path id="building-earth-left" />
+          <path id="building-earth-right" />
+        </g>
+
+        <g id="building-tower">
+          <path id="building-tower-left" />
+          <path id="building-tower-right" />
+          <path id="building-tower-top" />
+        </g>
+
+        <g id="building-roof">
+          <path id="building-roof-left" />
+          <path id="building-roof-right" />
+        </g>
+
+        <g id="building-door">
+          <path id="building-door-frame-bottom" />
+          <path id="building-door-frame-right" />
+          <path id="building-door-block" />
+          <path id="building-door-trim" />
+        </g>
+      </g>
+    </svg>
+  </body>
+  <script src="./client.dist.js"></script>
+</html>
