@@ -3,6 +3,26 @@ import 'babel-polyfill';
 import tween from '../../src';
 import { getPoints, toPath } from 'svg-shapes';
 
+const colors = [
+  '#3df55c',
+  '#47eb47',
+  '#69e052',
+  '#85d65c',
+  '#9c6',
+];
+
+const plotPoints = ({ shape, ...attributes }) => {
+  console.log( shape, attributes );
+  getPoints( shape, attributes ).forEach(( p, i ) => {
+    const circle = document.createElementNS( 'http://www.w3.org/2000/svg', 'circle' );
+    circle.setAttribute( 'cx', p.x );
+    circle.setAttribute( 'cy', p.y );
+    circle.setAttribute( 'r', 10 );
+    circle.setAttribute( 'fill', colors[ i ]);
+    document.getElementById( 'svg' ).appendChild( circle );
+  });
+};
+
 const shapes = [
   { shape: 'rect', height: 300, width: 300, x: 100, y: 100 },
   { shape: 'polyline', points: '100,250,400,250' },
@@ -14,12 +34,14 @@ const path = document.getElementById( 'path' );
 
 path.setAttribute( 'd', toPath( getPoints( shapes[ 0 ].shape, shapes[ 0 ])));
 
+shapes.forEach( plotPoints );
+
 const move = c => {
   const isLast = !Boolean( shapes[ c + 1 ]);
   const n = isLast ? 0 : c + 1;
 
   tween({
-    duration: 2000,
+    duration: 1000,
     from: shapes[ c ],
     to: shapes[ n ],
     next: d => path.setAttribute( 'd', d ),
