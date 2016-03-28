@@ -1,7 +1,8 @@
 import 'babel-polyfill';
 
-import { tweenPaths } from '../../src';
 import { toPath } from 'svg-points';
+
+import { tweenPaths } from '../../src';
 
 const paths = [
   'M0,2L1,4L2,5L3,3L4,4L5,3L6,4L7,1L8,2',

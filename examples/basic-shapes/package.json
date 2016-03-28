@@ -16,6 +16,7 @@
     "url": "https://github.com/colinmeinke/svg-tween/issues"
   },
   "dependencies": {
+    "points": "^1.1.1",
     "svg-points": "^1.0.2"
   },
   "description": "SVG tween basic shapes example",

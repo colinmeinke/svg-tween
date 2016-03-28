@@ -2,7 +2,7 @@
 
 Animate between SVG shapes.
 
-**5.5kb gzipped.**
+**5.7kb gzipped.**
 
 ## Polyfill generators
 
