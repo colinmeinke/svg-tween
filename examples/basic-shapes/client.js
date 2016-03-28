@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 
-import { reverse } from 'points';
+import { moveIndex, reverse } from 'points';
 import { toPath, toPoints } from 'svg-points';
 
 import tween from '../../src';
@@ -25,10 +25,10 @@ const plotPoints = shape => {
 };
 
 const shapes = [
-  { shape: 'path', d: toPath( reverse( toPoints({ shape: 'rect', height: 300, width: 300, x: 100, y: 100 }))) },
+  { shape: 'path', d: toPath( moveIndex( reverse( toPoints({ shape: 'rect', height: 300, width: 300, x: 100, y: 100 })), -1 ))},
   { shape: 'polyline', points: '100,250,400,250' },
   { shape: 'circle', cx: 250, cy: 250, r: 150 },
-  { shape: 'path', d: toPath( reverse( toPoints({ shape: 'path', d: 'M250,100L400,400L100,400Z' }))) },
+  { shape: 'path', d: toPath( reverse( toPoints({ shape: 'path', d: 'M250,100L400,400L100,400Z' })))},
 ];
 
 const path = document.getElementById( 'path' );
