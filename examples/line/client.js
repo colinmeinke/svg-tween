@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 
 import { tweenPaths } from '../../src';
-import { getPoints, toPath } from 'svg-shapes';
+import { toPath } from 'svg-points';
 
 const paths = [
   'M0,2L1,4L2,5L3,3L4,4L5,3L6,4L7,1L8,2',
@@ -17,7 +17,7 @@ const paths = [
 
 const path = document.getElementById( 'path' );
 
-path.setAttribute( 'd', toPath( getPoints( 'path', { d: paths[ 0 ]})));
+path.setAttribute( 'd', toPath({ shape: 'path', d: paths[ 0 ]}));
 
 const move = c => {
   const isLast = !Boolean( paths[ c + 1 ]);

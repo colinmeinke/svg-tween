@@ -2,7 +2,7 @@
 
 Animate between SVG shapes.
 
-**5.4kb gzipped.**
+**5.5kb gzipped.**
 
 ## Polyfill generators
 
@@ -44,8 +44,8 @@ SVG tween has two functions – `tween` and `tweenPaths`.
 
 The `tween` function takes all the same options as
 [**Tweening**'s `tween` function](https://github.com/colinmeinke/tweening#options).
-However, the `from` and `to` options take the form of shape
-objects.
+However, the `from` and `to` options take the form of
+[SVG shape objects](https://github.com/colinmeinke/svg-points).
 
 ```js
 import tween from 'svg-tween';

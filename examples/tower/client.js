@@ -1,7 +1,6 @@
 import 'babel-polyfill';
 
 import { tweenPaths } from '../../src';
-import { getPoints, toPath } from 'svg-shapes';
 
 const body = document.documentElement;
 

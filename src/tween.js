@@ -1,25 +1,7 @@
 import twn from 'tweening';
-import { getPoints, toPath } from 'svg-shapes';
+import { toPath, toPoints } from 'svg-points';
 
-import matchPoints from './matchPoints';
-
-const shapeToPoints = shp => {
-  const { shape, ...attributes } = shp;
-  return getPoints( shape, attributes );
-};
-
-const matchPointArrays = ( a, b ) => {
-  const x = [];
-  const y = [];
-
-  for ( let i = 0, l = a.length; i < l; i++ ) {
-    const [ c, d ] = matchPoints( a[ i ], b[ i ]);
-    x.push( c );
-    y.push( d );
-  }
-
-  return [ x, y ];
-};
+import { matchPointArrays } from './match';
 
 const tweenPaths = ({ complete, duration, easing, from, next, to }) => {
   const f = Array.isArray( from ) ?
@@ -34,18 +16,18 @@ const tweenPaths = ({ complete, duration, easing, from, next, to }) => {
 }
 
 const tween = ({ complete, duration, easing, from, next, to }) => {
-  const fromShapes = Array.isArray( from ) ? from : [ from ];
-  const toShapes = Array.isArray( to ) ? to : [ to ];
+  const fs = Array.isArray( from ) ? from : [ from ];
+  const ts = Array.isArray( to ) ? to : [ to ];
 
-  const fromPoints = fromShapes.map( shapeToPoints );
-  const toPoints = toShapes.map( shapeToPoints );
+  const fp = fs.map( toPoints );
+  const tp = ts.map( toPoints );
 
-  const [ f, t ] = matchPointArrays( fromPoints, toPoints );
+  const [ f, t ] = matchPointArrays( fp, tp );
 
   twn({
     complete: () => {
       if ( typeof next === 'function' ) {
-        toPoints.forEach(( p, i ) => next( toPath( p ), i ));
+        tp.forEach(( p, i ) => next( toPath( p ), i ));
       }
 
       if ( typeof complete === 'function' ) {

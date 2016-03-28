@@ -21,8 +21,8 @@
     }
   },
   "dependencies": {
-    "svg-arc-to-cubic-bezier": "^1.0.0",
-    "svg-shapes": "^1.9.1",
+    "points": "^1.0.0",
+    "svg-points": "^1.0.2",
     "tweening": "^1.1.0"
   },
   "description": "Animate between SVG shapes",

@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/colinmeinke/svg-tween/issues"
   },
+  "dependencies": {
+    "svg-points": "^1.0.2"
+  },
   "description": "SVG tween line example",
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.6.5",

@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 
 import tween from '../../src';
-import { getPoints, toPath } from 'svg-shapes';
+import { toPath, toPoints } from 'svg-points';
 
 const colors = [
   '#3df55c',
@@ -11,9 +11,8 @@ const colors = [
   '#9c6',
 ];
 
-const plotPoints = ({ shape, ...attributes }) => {
-  console.log( shape, attributes );
-  getPoints( shape, attributes ).forEach(( p, i ) => {
+const plotPoints = shape => {
+  toPoints( shape ).forEach(( p, i ) => {
     const circle = document.createElementNS( 'http://www.w3.org/2000/svg', 'circle' );
     circle.setAttribute( 'cx', p.x );
     circle.setAttribute( 'cy', p.y );
@@ -32,7 +31,7 @@ const shapes = [
 
 const path = document.getElementById( 'path' );
 
-path.setAttribute( 'd', toPath( getPoints( shapes[ 0 ].shape, shapes[ 0 ])));
+path.setAttribute( 'd', toPath( shapes[ 0 ]));
 
 shapes.forEach( plotPoints );
 
