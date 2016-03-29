@@ -21,7 +21,7 @@
     }
   },
   "dependencies": {
-    "points": "^1.2.0",
+    "points": "^1.3.0",
     "svg-points": "^1.0.2",
     "tweening": "^1.1.0"
   },
