@@ -2,7 +2,7 @@
 
 Animate between SVG shapes.
 
-**5.7kb gzipped.**
+**6.8kb gzipped.**
 
 ## Polyfill generators
 
@@ -191,11 +191,11 @@ shapes (with differing number of points).
 
 | Library | Size |
 | --- | --- |
-| SVG tween | 5.4kb |
+| SVG tween | 6.8kb |
 | [SVG Morpheus](https://alexk111.github.io/SVG-Morpheus) | 7.2kb |
 | [SnapSVG](http://snapsvg.io) | 26kb |
 | [RaphaelJS](http://dmitrybaranovskiy.github.io/raphael) | 32kb |
-| [GreenSock morphSVG](http://greensock.com/morphSVG) | 41.5kb |
+| [GreenSock TweenMax + morphSVG plugin](http://greensock.com/morphSVG) | 41.5kb |
 | [Bonsai](http://bonsaijs.org) | 43kb |
 | [D3](https://d3js.org) | 52kb |
 

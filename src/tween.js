@@ -15,7 +15,7 @@ const tweenPaths = ({ complete, duration, easing, from, next, to }) => {
   tween({ complete, duration, easing, from: f, next, to: t });
 }
 
-const tween = ({ complete, duration, easing, from, next, to }) => {
+const tween = ({ complete, duration, easing, from, middleware = [], next, to }) => {
   const fs = Array.isArray( from ) ? from : [ from ];
   const ts = Array.isArray( to ) ? to : [ to ];
 
@@ -37,6 +37,7 @@ const tween = ({ complete, duration, easing, from, next, to }) => {
     duration,
     easing,
     from: f,
+    middleware,
     next: points => {
       if ( typeof next === 'function' ) {
         points.forEach(( p, i ) => next( toPath( p ), i ));
