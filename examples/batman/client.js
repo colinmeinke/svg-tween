@@ -14,7 +14,7 @@ const paths = [
 
 const path = document.getElementById( 'path' );
 
-path.setAttribute( 'd', toPath({ shape: 'path', d: paths[ 0 ]}));
+path.setAttribute( 'd', toPath({ type: 'path', d: paths[ 0 ]}));
 
 const move = c => {
   const isLast = !Boolean( paths[ c + 1 ]);
@@ -26,8 +26,8 @@ const move = c => {
     from: paths[ c ],
     to: paths[ n ],
     next: d => path.setAttribute( 'd', d ),
-    complete: () => setTimeout(() => { move( isLast ? 0 : c + 1 ) }, 700 ),
+    complete: () => setTimeout(() => { move( isLast ? 0 : c + 1 )}, 700 ),
   });
 };
 
-setTimeout(() => { move( 0 ) }, 1000 );
+setTimeout(() => { move( 0 )}, 1000 );

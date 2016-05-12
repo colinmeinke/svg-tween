@@ -18,7 +18,7 @@ const paths = [
 
 const path = document.getElementById( 'path' );
 
-path.setAttribute( 'd', toPath({ shape: 'path', d: paths[ 0 ]}));
+path.setAttribute( 'd', toPath({ type: 'path', d: paths[ 0 ]}));
 
 const move = c => {
   const isLast = !Boolean( paths[ c + 1 ]);

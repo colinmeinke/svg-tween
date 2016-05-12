@@ -5,12 +5,12 @@ import { matchPointArrays } from './match';
 
 const tweenPaths = ({ complete, duration, easing, from, next, to }) => {
   const f = Array.isArray( from ) ?
-    from.map( d => ({ shape: 'path', d })) :
-    { shape: 'path', d: from };
+    from.map( d => ({ type: 'path', d })) :
+    { type: 'path', d: from };
 
   const t = Array.isArray( to ) ?
-    to.map( d => ({ shape: 'path', d })) :
-    { shape: 'path', d: to };
+    to.map( d => ({ type: 'path', d })) :
+    { type: 'path', d: to };
 
   tween({ complete, duration, easing, from: f, next, to: t });
 }

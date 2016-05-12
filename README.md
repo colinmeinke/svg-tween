@@ -52,13 +52,13 @@ import tween from 'svg-tween';
 
 // The shape we want to animate from
 const from = {
-  shape: 'path',
+  type: 'path',
   d: 'M5,50L80,60v40,l-15,10l-15,-10z',
 };
 
 // The shape we want to animate to
 const to = {
-  shape: 'rect',
+  type: 'rect',
   width: 100,
   height: 100,
   x: 50,
