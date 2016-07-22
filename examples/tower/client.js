@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 
-import { tweenPaths } from '../../src';
+import { tweenPaths } from './tmp';
 
 const body = document.documentElement;
 

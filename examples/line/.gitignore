@@ -1,2 +1,4 @@
 client.dist.js
 lib/
+npm-debug.log
+tmp/

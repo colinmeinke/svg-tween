@@ -3,7 +3,7 @@ import 'babel-polyfill';
 import { moveIndex, reverse } from 'points';
 import { toPath, toPoints } from 'svg-points';
 
-import tween from '../../src';
+import tween from './tmp';
 
 const colors = [
   '#3df55c',
