@@ -4,6 +4,10 @@ Animate between SVG shapes.
 
 **8kb gzipped.**
 
+**Note:** [Wilderness](https://github.com/colinmeinke/wilderness)
+has superseded this library and I'd highly recommend trying
+that instead.
+
 ## Polyfill generators
 
 However, you're currently also going to have to bring
