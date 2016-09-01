@@ -179,7 +179,7 @@ const tweenPaths = SVGTween.tweenPaths;
 And if you just want to smash in a Javascript file you're
 also covered. Drop this in place ...
 
-[https://npmcdn.com/svg-tween@1.4.0/dist/svg-tween.min.js](https://npmcdn.com/svg-tween@1.4.0/dist/svg-tween.min.js)
+[https://unpkg.com/svg-tween@1.4.0/dist/svg-tween.min.js](https://unpkg.com/svg-tween@1.4.0/dist/svg-tween.min.js)
 
 Then access it on the `SVGTween` global variable.
 
