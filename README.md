@@ -52,13 +52,13 @@ However, the `from` and `to` options take the form of
 [SVG shape objects](https://github.com/colinmeinke/svg-points).
 
 ```js
-import tween from 'svg-tween';
+import tween from 'svg-tween'
 
 // The shape we want to animate from
 const from = {
   type: 'path',
-  d: 'M5,50L80,60v40,l-15,10l-15,-10z',
-};
+  d: 'M5,50L80,60v40,l-15,10l-15,-10z'
+}
 
 // The shape we want to animate to
 const to = {
@@ -66,17 +66,17 @@ const to = {
   width: 100,
   height: 100,
   x: 50,
-  y: 50,
-};
+  y: 50
+}
 
 // Create a new path node
-const path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path' );
+const path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
 
 // Set the node's initial d attribute to match the from shape
-path.setAttribute( 'd', from.d );
+path.setAttribute('d', from.d)
 
 // Add the path node to the dom
-document.getElementById( 'svg' ).appendChild( path );
+document.getElementById('svg').appendChild(path)
 
 // Let's move!
 // On each frame our next callback is run
@@ -85,8 +85,8 @@ tween({
   duration: 500,
   from,
   to,
-  next: d => path.setAttribute( 'd', d ),
-});
+  next: d => path.setAttribute('d', d)
+})
 ```
 
 ### tweenPaths
@@ -95,22 +95,22 @@ The `tweenPaths` function is much the same as `tween`, except
 it takes `d` attribute strings as it's `from` and `to` options.
 
 ```js
-import { tweenPaths } from 'svg-tween';
+import { tweenPaths } from 'svg-tween'
 
 // The path we want to animate from
-const from = 'M5,50L80,60v40,l-15,10l-15,-10z';
+const from = 'M5,50L80,60v40,l-15,10l-15,-10z'
 
 // The path we want to animate to
-const to = 'M50,50h100v100h-100Z';
+const to = 'M50,50h100v100h-100Z'
 
 // Create a new path node
-const path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path' );
+const path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
 
 // Set the node's initial d attribute to match from
-path.setAttribute( 'd', from );
+path.setAttribute('d', from)
 
 // Add the path node to the dom
-document.getElementById( 'svg' ).appendChild( path );
+document.getElementById('svg').appendChild(path)
 
 // Let's move!
 // On each frame our next callback is run
@@ -119,8 +119,8 @@ tweenPaths({
   duration: 500,
   from,
   to,
-  next: d => path.setAttribute( 'd', d ),
-});
+  next: d => path.setAttribute('d', d)
+})
 ```
 
 ## Morphing multiple shapes
@@ -131,27 +131,27 @@ This allows us to tween groups of SVG shapes in one function
 call.
 
 ```js
-import { tweenPaths } from 'svg-tween';
+import { tweenPaths } from 'svg-tween'
 
 // The paths we want to animate from
-const from = [ 'M0,0h10v10h-10z', 'M10,10h10v10h-10z' ];
+const from = [ 'M0,0h10v10h-10z', 'M10,10h10v10h-10z' ]
 
 // The paths we want to animate to
-const to = [ 'M0,0l10,5l-10,5z', 'M10,10l10,5l-10,5z' ];
+const to = [ 'M0,0l10,5l-10,5z', 'M10,10l10,5l-10,5z' ]
 
 // Create two new path nodes
 const paths = [
   document.createElementNS( 'http://www.w3.org/2000/svg', 'path' ),
-  document.createElementNS( 'http://www.w3.org/2000/svg', 'path' ),
-];
+  document.createElementNS( 'http://www.w3.org/2000/svg', 'path' )
+]
 
 paths.forEach(( p, i ) => {
   // Set the node's initial d attribute to match from
-  p.setAttribute( 'd', from[ i ]);
+  p.setAttribute('d', from[ i ])
 
   // Add the path node to the dom
-  document.getElementById( 'svg' ).appendChild( p );
-);
+  document.getElementById('svg').appendChild(p)
+)
 
 // Let's move!
 // On each frame our next callback is run for each path
@@ -159,8 +159,8 @@ paths.forEach(( p, i ) => {
 tweenPaths({
   from,
   to,
-  next: ( d, i ) => paths[ i ].setAttribute( 'd', d ),
-});
+  next: (d, i) => paths[ i ].setAttribute('d', d)
+})
 ```
 
 ## CommonJS
@@ -169,9 +169,9 @@ This is how you get to the good stuff if you're using
 `require`.
 
 ```js
-const SVGTween = require( 'svg-tween' );
-const tween = SVGTween.default;
-const tweenPaths = SVGTween.tweenPaths;
+const SVGTween = require( 'svg-tween' )
+const tween = SVGTween.default
+const tweenPaths = SVGTween.tweenPaths
 ```
 
 ## UMD
@@ -179,13 +179,13 @@ const tweenPaths = SVGTween.tweenPaths;
 And if you just want to smash in a Javascript file you're
 also covered. Drop this in place ...
 
-[https://unpkg.com/svg-tween@1.4.0/dist/svg-tween.min.js](https://unpkg.com/svg-tween@1.4.0/dist/svg-tween.min.js)
+[https://unpkg.com/svg-tween/dist/svg-tween.min.js](https://unpkg.com/svg-tween/dist/svg-tween.min.js)
 
 Then access it on the `SVGTween` global variable.
 
 ```js
-const tween = SVGTween.default;
-const tweenPaths = SVGTween.tweenPaths;
+const tween = SVGTween.default
+const tweenPaths = SVGTween.tweenPaths
 ```
 
 ## Size

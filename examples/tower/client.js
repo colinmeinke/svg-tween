@@ -1,33 +1,33 @@
-import 'babel-polyfill';
+import 'babel-polyfill'
 
-import { tweenPaths } from './tmp';
+import { tweenPaths } from './tmp'
 
-const body = document.documentElement;
+const body = document.documentElement
 
 const paths = [
-  document.getElementById( 'tile-floor' ),
-  document.getElementById( 'tile-right' ),
-  document.getElementById( 'tile-left' ),
-  document.getElementById( 'drive' ),
-  document.getElementById( 'tree-earth-left' ),
-  document.getElementById( 'tree-earth-right' ),
-  document.getElementById( 'tree-trunk-left' ),
-  document.getElementById( 'tree-trunk-right' ),
-  document.getElementById( 'tree-leaves-left' ),
-  document.getElementById( 'tree-leaves-right' ),
-  document.getElementById( 'tree-leaves-top' ),
-  document.getElementById( 'building-earth-left' ),
-  document.getElementById( 'building-earth-right' ),
-  document.getElementById( 'building-tower-left' ),
-  document.getElementById( 'building-tower-right' ),
-  document.getElementById( 'building-tower-top' ),
-  document.getElementById( 'building-roof-left' ),
-  document.getElementById( 'building-roof-right' ),
-  document.getElementById( 'building-door-frame-bottom' ),
-  document.getElementById( 'building-door-frame-right' ),
-  document.getElementById( 'building-door-block' ),
-  document.getElementById( 'building-door-trim' ),
-];
+  document.getElementById('tile-floor'),
+  document.getElementById('tile-right'),
+  document.getElementById('tile-left'),
+  document.getElementById('drive'),
+  document.getElementById('tree-earth-left'),
+  document.getElementById('tree-earth-right'),
+  document.getElementById('tree-trunk-left'),
+  document.getElementById('tree-trunk-right'),
+  document.getElementById('tree-leaves-left'),
+  document.getElementById('tree-leaves-right'),
+  document.getElementById('tree-leaves-top'),
+  document.getElementById('building-earth-left'),
+  document.getElementById('building-earth-right'),
+  document.getElementById('building-tower-left'),
+  document.getElementById('building-tower-right'),
+  document.getElementById('building-tower-top'),
+  document.getElementById('building-roof-left'),
+  document.getElementById('building-roof-right'),
+  document.getElementById('building-door-frame-bottom'),
+  document.getElementById('building-door-frame-right'),
+  document.getElementById('building-door-block'),
+  document.getElementById('building-door-trim')
+]
 
 const keyframes1 = [
   'M0,370l280,140l280,-140l-280,-140z',
@@ -51,8 +51,8 @@ const keyframes1 = [
   'M310,414.9l0,0.1l60,-30l-0.1,-0.05z',
   'M370,340l-0.1,0.05l0,44.9l0.1,0.05z',
   'M310,414.9l0,0.1l60,-30l0,-0.1z',
-  'M339,400.4l0,0.1l2,-1l0,-0.1z',
-];
+  'M339,400.4l0,0.1l2,-1l0,-0.1z'
+]
 
 const keyframes2 = [
   'M0,370l280,140l280,-140l-280,-140z',
@@ -76,8 +76,8 @@ const keyframes2 = [
   'M310,414.9l0,0.1l60,-30l-0.1,-0.05z',
   'M370,340l-0.1,0.05l0,44.9l0.1,0.05z',
   'M310,414.9l0,0.1l60,-30l0,-0.1z',
-  'M339,400.4l0,0.1l2,-1l0,-0.1z',
-];
+  'M339,400.4l0,0.1l2,-1l0,-0.1z'
+]
 
 const keyframes3 = [
   'M0,370l280,140l280,-140l-280,-140z',
@@ -101,8 +101,8 @@ const keyframes3 = [
   'M310,414.9l0,0.1l60,-30l-0.1,-0.05z',
   'M370,340l-0.1,0.05l0,44.9l0.1,0.05z',
   'M310,370l0,45l60,-30l0,-45z',
-  'M339,355.5l0,45l2,-1l0,-45z',
-];
+  'M339,355.5l0,45l2,-1l0,-45z'
+]
 
 const keyframes4 = [
   'M0,370l280,140l280,-140l-280,-140z',
@@ -126,10 +126,10 @@ const keyframes4 = [
   'M310,411l0,4l60,-30l-4,-2z',
   'M370,340l-4,2l0,41l4,2z',
   'M310,370l0,41l56,-28l0,-41z',
-  'M335,357.5l0,41l2,-1l0,-41z',
-];
+  'M335,357.5l0,41l2,-1l0,-41z'
+]
 
-paths.forEach(( p, i ) => p.setAttribute( 'd', keyframes1[ i ]));
+paths.forEach((p, i) => p.setAttribute('d', keyframes1[ i ]))
 
 const animate = ({ className, duration, easing, from, to }) => {
   tweenPaths({
@@ -137,24 +137,24 @@ const animate = ({ className, duration, easing, from, to }) => {
     easing,
     from,
     to,
-    next: ( d, i ) => paths[ i ].setAttribute( 'd', d ),
+    next: (d, i) => paths[ i ].setAttribute('d', d),
     complete: () => {
-      body.classList.add( className );
-      nextAnimation();
-    },
-  });
-};
+      body.classList.add(className)
+      nextAnimation()
+    }
+  })
+}
 
 const animations = [
   { className: 'one', duration: 1000, easing: 'easeInExpo', from: keyframes1, to: keyframes2 },
   { className: 'two', duration: 200, easing: 'easeOutBack', from: keyframes2, to: keyframes3 },
-  { className: 'three', duration: 400, easing: 'easeOutBounce', from: keyframes3, to: keyframes4 },
-];
+  { className: 'three', duration: 400, easing: 'easeOutBounce', from: keyframes3, to: keyframes4 }
+]
 
 const nextAnimation = () => {
-  if ( animations.length ) {
-    animate( animations.shift());
+  if (animations.length) {
+    animate(animations.shift())
   }
-};
+}
 
-setTimeout( nextAnimation, 1000 );
+setTimeout(nextAnimation, 1000)

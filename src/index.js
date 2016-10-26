@@ -1,4 +1,4 @@
-import tween, { tweenPaths } from './tween';
+import tween, { tweenPaths } from './tween'
 
-export { tweenPaths };
-export default tween;
+export { tweenPaths }
+export default tween
