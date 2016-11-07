@@ -17,6 +17,7 @@
   },
   "description": "SVG tween basic shapes example",
   "devDependencies": {
+    "babel-core": "^6.18.2",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-polyfill": "^6.16.0",
@@ -32,9 +33,9 @@
     "url": "https://github.com/colinmeinke/svg-tween.git"
   },
   "scripts": {
-    "build": "npm run copy && webpack ./client.js ./client.dist.js --config ./webpack.config.babel.js && npm run clean",
-    "clean": "rm -rf ./tmp",
-    "copy": "cp -r ../../src ./tmp"
+    "build": "npm run copy && webpack ./client.js ./client.dist.js --config ./webpack.config.babel.js && npm run tidy",
+    "copy": "cp -r ../../src ./tmp",
+    "tidy": "rm -rf ./tmp"
   },
   "version": "0.0.0-semantically-released"
 }
