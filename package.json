@@ -21,26 +21,27 @@
     }
   },
   "dependencies": {
-    "points": "^1.12.2",
-    "svg-points": "^2.0.1",
+    "babel-core": "^6.18.2",
+    "points": "^2.0.1",
+    "svg-points": "^3.1.4",
     "tweening": "^1.2.0"
   },
   "description": "Animate between SVG shapes",
   "devDependencies": {
-    "babel-cli": "^6.18.0",
+    "babel-cli": "^6.22.2",
     "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.5",
-    "babel-plugin-transform-object-rest-spread": "^6.16.0",
-    "babel-preset-es2015": "^6.18.0",
-    "commitizen": "^2.8.6",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "commitizen": "^2.9.5",
     "cz-conventional-changelog": "^1.2.0",
     "expect": "^1.20.2",
-    "mocha": "^3.1.2",
+    "mocha": "^3.2.0",
     "rimraf": "^2.5.4",
-    "semantic-release": "^4.3.5",
-    "snazzy": "^5.0.0",
-    "standard": "^8.5.0",
-    "webpack": "^1.13.2"
+    "semantic-release": "^6.3.2",
+    "snazzy": "^6.0.0",
+    "standard": "^8.6.0",
+    "webpack": "^1.14.0"
   },
   "keywords": [
     "animate",

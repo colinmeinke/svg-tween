@@ -25,10 +25,10 @@ const plotPoints = shape => {
 }
 
 const shapes = [
-  { type: 'path', d: toPath(moveIndex(reverse(toPoints({ type: 'rect', height: 300, width: 300, x: 100, y: 100 })), -1)) },
-  { type: 'polyline', points: '100,250,400,250' },
+  { type: 'path', d: toPath(toPoints({ type: 'rect', height: 300, width: 300, x: 100, y: 100 })) },
+  { type: 'polyline', points: '400,250,100,250' },
   { type: 'circle', cx: 250, cy: 250, r: 150 },
-  { type: 'path', d: toPath(reverse(toPoints({ type: 'path', d: 'M250,100L400,400L100,400Z' }))) }
+  { type: 'path', d: toPath(toPoints({ type: 'path', d: 'M250,100L400,400L100,400Z' })) }
 ]
 
 const path = document.getElementById('path')

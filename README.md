@@ -2,7 +2,7 @@
 
 Animate between SVG shapes.
 
-**8kb gzipped.**
+**8.6kb gzipped.**
 
 **Note:** [Wilderness](https://github.com/colinmeinke/wilderness)
 has superseded this library and I'd highly recommend trying

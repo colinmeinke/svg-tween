@@ -18,12 +18,12 @@
   "description": "SVG tween basic shapes example",
   "devDependencies": {
     "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.5",
-    "babel-plugin-transform-object-rest-spread": "^6.16.0",
-    "babel-polyfill": "^6.16.0",
-    "babel-preset-es2015": "^6.18.0",
-    "points": "^1.12.2",
-    "svg-points": "^2.0.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "points": "^2.0.1",
+    "svg-points": "^3.1.4",
     "tweening": "^1.2.0",
     "webpack": "^2.1.0-beta.25"
   },
@@ -37,5 +37,8 @@
     "copy": "cp -r ../../src ./tmp",
     "tidy": "rm -rf ./tmp"
   },
-  "version": "0.0.0-semantically-released"
+  "version": "0.0.0-semantically-released",
+  "dependencies": {
+    "babel-core": "^6.18.2"
+  }
 }
