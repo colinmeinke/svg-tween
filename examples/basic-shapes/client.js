@@ -1,6 +1,5 @@
 import 'babel-polyfill'
 
-import { moveIndex, reverse } from 'points'
 import { toPath, toPoints } from 'svg-points'
 
 import tween from './tmp'
