@@ -9,4 +9,4 @@ npm run build
 
 Then open `index.html` in your browser.
 
-![Tower example](https://www.dropbox.com/s/ztcemvnhyxjeypb/tower.gif?raw=1)
+![Tower example](https://www.dropbox.com/s/qhaq4tpceix7p7e/tower.gif?raw=1)

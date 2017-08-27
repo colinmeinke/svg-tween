@@ -18,19 +18,19 @@ library makes use of.
 
 ## Examples
 
-![Tower example](https://www.dropbox.com/s/ztcemvnhyxjeypb/tower.gif?raw=1)
+![Tower example](https://www.dropbox.com/s/qhaq4tpceix7p7e/tower.gif?raw=1)
 
 [View tower example code](./examples/tower)
 
-![Batman example](https://www.dropbox.com/s/2n92b1uqh6rao8q/batman.gif?raw=1)
+![Batman example](https://www.dropbox.com/s/azpxwoi9ajt7fzf/batman.gif?raw=1)
 
 [View batman example code](./examples/batman)
 
-![Line example](https://www.dropbox.com/s/y3rn6r62c07ln36/line.gif?raw=1)
+![Line example](https://www.dropbox.com/s/9zcweiapx2jjw9t/line.gif?raw=1)
 
 [View line example code](./examples/line)
 
-![Basic shapes example](https://www.dropbox.com/s/9czewgnfkp59yfn/basic-shapes.gif?raw=1)
+![Basic shapes example](https://www.dropbox.com/s/ki01v10z2a4c5pb/basic-shapes.gif?raw=1)
 
 [View basic shapes example code](./examples/basic-shapes)
 
